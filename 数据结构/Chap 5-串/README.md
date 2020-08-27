@@ -34,3 +34,29 @@ int Index (String S, String T, int pos)
 ```
 > 最坏情况下，复杂度为O((n-m+1)*m),效率低下
 ### KMP模式匹配算法
+> next数组，next[q]=k表示，在T[q]之前的子串中，存在长度为K-1的相同前缀和后缀。
+
+即P<sub>1</sub>...P<sub>k-1</sub>=P<sub>q-k+1</sub>...P<sub>q-1</sub>
+
+```
+/*通过计算返回子串T的next数组*/
+void get_next (String T, int *next)
+{
+    int i,j;
+    i = 1;
+    j = 0;
+    next[1] = 0;
+    while (i<T[0]) /*T(0)表示串T的长度*/
+    {
+        if(j==0 || T[i] == T[j])
+        {
+            ++i;
+            ++j;
+            next[i]=j;
+        }
+        else{
+            j = next[j];/*若字符不相同，则j值回溯*/
+        }
+    }
+}
+```
