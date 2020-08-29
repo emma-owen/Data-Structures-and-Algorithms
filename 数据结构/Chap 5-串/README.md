@@ -61,3 +61,4 @@ void get_next (String T, int *next)
 }
 ```
 ### 详解KMP算法
+1、
