@@ -48,3 +48,12 @@ class HeapSort {
     arr[max] = temp;
   }
 }
+const arr = [null];
+let i = 0;
+while (i <= 10) {
+  const num = Math.floor(Math.random() * 100);
+  arr.push(num);
+  i++;
+}
+const testHeap = new HeapSort(arr);
+testHeap.sort();
